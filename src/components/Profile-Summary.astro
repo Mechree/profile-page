@@ -1,0 +1,42 @@
+---
+// Components
+import { Image } from 'astro:assets';
+
+// Assets
+import portrait from "../assets/self.jpg"
+
+// Variables
+var linkedInUrl = "https://www.linkedin.com/in/mmc-dyt89/"
+var schoolUrl = "https://www.wright.edu/"
+var workplaceUrl = "https://kastle-lab.github.io/"
+var school = "Wright State University"
+var schoolLoc = "Dayton, Ohio, USA"
+var workPlace = "Knowledge and Semantic Technologies Laboratory (KASTLE Lab)"
+---
+
+  <div class="profile">
+    <aside>
+      <h1><a href={linkedInUrl}>Michael McCain</a>
+      <Image src={portrait} width='250' alt="portrait" border-radius="0.75rem"></Image>
+
+      <ul>
+        <li>Computer Science GRA</li>
+        <li><a href={schoolUrl}>{school}<br>{schoolLoc}</a> </li>
+        <li><a href={workplaceUrl}>{workPlace}</a></li>
+      </ul>
+    </aside>
+  </div>
+
+<style>
+  .profile {
+    margin: .5rem;
+    text-align: center;
+  }
+  img {
+    border-radius: 55%;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+  
+</style>

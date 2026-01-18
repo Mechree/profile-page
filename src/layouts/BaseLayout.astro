@@ -1,0 +1,43 @@
+---
+// Styles
+import '../styles/global.css'
+// Components 
+import Foot from "../components/Footer.astro"
+import Navbar from "../components/NavBar.astro"
+import Content from "../components/Content.astro"
+import Profile from "../components/Profile-Summary.astro"
+
+
+
+// Variables
+const {title = "default"} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="forest">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+</head>
+<body>
+	<div class="container-nav">
+	<Navbar></Navbar>
+	</div>
+
+	<div class="container-main">
+		<Profile></Profile>
+		<Content></Content>
+	</div>
+	
+	<Foot></Foot>
+</body>
+
+</html>
+
+<style>
+	.container-main {
+	display: grid;
+  grid-template-columns: 250px auto
+	}
+</style>

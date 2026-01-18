@@ -1,0 +1,43 @@
+---
+// Libraries
+import { Image } from 'astro:assets';
+import logoImg from "../assets/logo.png"
+// Data
+import navData from "../data/navData"
+
+// Components 
+import Link from "../components/Link.astro"
+
+---
+  <nav>
+    <div class ="navbar">
+      <a href="/" class="'logo">
+        <Image src={logoImg} width='100' height='100' alt="Logo">
+      </a>
+      <ul class="nav-links">
+        {
+          navData.map((item) => (<a href={item.path}>{item.name}</a>))
+        }
+      </ul>
+    </div>
+	</nav>
+
+<style>
+  .navbar {
+    display: flex;             
+    align-items: center;       
+    background-color: #131b20;
+    gap: 20px;
+    justify-content: flex-start; 
+  }
+
+  .nav-links {
+  display: flex;             
+  list-style: none;
+  gap: 20px;                 
+  margin: 0;
+  padding: 0;
+}
+</style>
+
+

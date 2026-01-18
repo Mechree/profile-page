@@ -1,0 +1,28 @@
+---
+
+---
+<footer class="page-footer">
+    <small>Designed with 
+        <a href="https://astro.build/">Astro</a>,
+        <a href="https://tailwindcss.com/">Tailwind</a>,
+        and
+        <a href="https://daisyui.com/">DaisyUI</a>.
+    </small>
+    <br>
+    <small>
+        Copyright &copy; <span
+        id="copyright"></span> | All rights reserved
+    </small>
+</footer>
+
+<script>
+    document.querySelector("#copyright").textContent = new Date().getFullYear().toString();
+</script>
+
+<style>
+.page-footer {
+  background-color: #131b20;
+  color: white;
+  padding: 20px;
+}
+</style>
