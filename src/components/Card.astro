@@ -1,0 +1,66 @@
+---
+// Components
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Link from "../components/Link.astro"
+
+// Objects
+export interface Props {
+  imagePath: string;      
+  altText?: string;
+  name?: string;
+  cardClass?: string;
+  titleUrl?: string;
+}
+
+// Variables
+const {
+  imagePath,
+  altText = "",
+  name,
+  cardClass = "",
+  titleUrl = ""
+} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*",
+  { eager: true }
+);
+const mod = images[imagePath];
+const img = mod.default; 
+
+// Scripts
+if (!mod) {
+  throw new Error(
+    `"${imagePath}" does not exist. Valid keys look like "/src/assets/self.jpg".`
+  );
+}
+---
+
+<article class={`card ${cardClass}`}>
+  {name && <h3 class={`card-title`}><Link href={titleUrl}>{name}</Link></h3>}
+
+  <Image
+    src={img}
+    alt={altText}
+    class="rounded-xl"
+  />
+</article>
+
+<style>
+.card {
+  padding: .5rem;
+  border-radius: 12px;
+  background: #131a20;
+}
+
+.card-title {
+  padding-bottom: 2%;
+  font-size: 1.35rem;
+  font-weight: 200; 
+}
+
+.card-image {
+  border-radius: 8px;
+}
+</style>

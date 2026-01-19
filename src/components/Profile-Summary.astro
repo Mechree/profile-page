@@ -1,12 +1,10 @@
 ---
 // Components
-import { Image } from 'astro:assets';
 import Link from '../components/Link.astro'
-
-// Assets
-import portrait from "../assets/self.jpg"
+import Card from '../components/Card.astro'
 
 // Variables
+var port = "/src/assets/self.jpg"
 var nameSelf = "Michael McCain"
 var jobTitle = "Computer Science GRA"
 var linkedInUrl = "https://www.linkedin.com/in/mmc-dyt89/"
@@ -19,9 +17,7 @@ var workPlace = "Knowledge and Semantic Technologies Laboratory (KASTLE Lab)"
 
   <div class="profile">
     <aside>
-      <h1 class="text-3xl"><Link href={linkedInUrl}>{nameSelf}</Link></h1>
-      <Image src={portrait} width='250' alt="portrait" border-radius="0.75rem" loading={'eager'}></Image>
-
+      <Card name={nameSelf}} imagePath={port} titleUrl={linkedInUrl} cardClass="border-neutral-600 border-2"></Card>
       <ul class="text-lg">
         <li>{jobTitle}</li>
         <li><Link href={schoolUrl}>{school}<br>{schoolLoc}</Link></li>
@@ -35,18 +31,8 @@ var workPlace = "Knowledge and Semantic Technologies Laboratory (KASTLE Lab)"
     margin: .5rem;
     text-align: center;
   }
-  h1 {
-    margin-bottom: 4%;
-  }
-  img {
-    border-radius: 55%;
-  }
 
   li {
     margin-bottom: 8px;
-  }
-
-  h1 {
-
   }
 </style>
