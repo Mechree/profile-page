@@ -11,6 +11,10 @@ const navData = [
     name:"Experience",
     path: "/experience",
   },
+  {
+    name: "Home",
+    path: "/profile-page"
+  }
 ]
 
 export default navData
