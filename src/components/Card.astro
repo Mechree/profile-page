@@ -27,14 +27,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 const mod = images[imagePath];
-const img = mod.default; 
-
+const repoBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+  
 // Scripts
 if (!mod) {
   throw new Error(
     `"${imagePath}" does not exist. Valid keys look like "/src/assets/self.jpg".`
   );
 }
+const img = mod.default; 
+
 ---
 
 <article class={`card ${cardClass}`}>

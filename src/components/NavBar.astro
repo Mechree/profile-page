@@ -9,6 +9,9 @@ import navData from "../data/navData"
 // Components 
 import Link from "../components/Link.astro"
 
+// Variables
+const repoBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 ---
   <nav>
     <div class ="navbar">
@@ -17,7 +20,7 @@ import Link from "../components/Link.astro"
       </a>
       <ul class="nav-links">
         {
-          navData.map((item) => (<Link href={item.path}>{item.name}</Link>))
+          navData.map((item) => (<Link href={repoBase(item.path)}>{item.name}</Link>))
         }
       </ul>
     </div>
