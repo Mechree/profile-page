@@ -1,11 +1,14 @@
 ---
 // Components
 import { Image } from 'astro:assets';
+import Link from '../components/Link.astro'
 
 // Assets
 import portrait from "../assets/self.jpg"
 
 // Variables
+var nameSelf = "Michael McCain"
+var jobTitle = "Computer Science GRA"
 var linkedInUrl = "https://www.linkedin.com/in/mmc-dyt89/"
 var schoolUrl = "https://www.wright.edu/"
 var workplaceUrl = "https://kastle-lab.github.io/"
@@ -16,13 +19,13 @@ var workPlace = "Knowledge and Semantic Technologies Laboratory (KASTLE Lab)"
 
   <div class="profile">
     <aside>
-      <h1><a href={linkedInUrl}>Michael McCain</a>
-      <Image src={portrait} width='250' alt="portrait" border-radius="0.75rem"></Image>
+      <h1 class="text-3xl"><Link href={linkedInUrl}>{nameSelf}</Link></h1>
+      <Image src={portrait} width='250' alt="portrait" border-radius="0.75rem" loading={'eager'}></Image>
 
-      <ul>
-        <li>Computer Science GRA</li>
-        <li><a href={schoolUrl}>{school}<br>{schoolLoc}</a> </li>
-        <li><a href={workplaceUrl}>{workPlace}</a></li>
+      <ul class="text-lg">
+        <li>{jobTitle}</li>
+        <li><Link href={schoolUrl}>{school}<br>{schoolLoc}</Link></li>
+        <li><Link href={workplaceUrl}>{workPlace}</Link></li>
       </ul>
     </aside>
   </div>
@@ -32,11 +35,18 @@ var workPlace = "Knowledge and Semantic Technologies Laboratory (KASTLE Lab)"
     margin: .5rem;
     text-align: center;
   }
+  h1 {
+    margin-bottom: 4%;
+  }
   img {
     border-radius: 55%;
   }
+
   li {
     margin-bottom: 8px;
   }
-  
+
+  h1 {
+
+  }
 </style>

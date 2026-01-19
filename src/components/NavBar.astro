@@ -2,6 +2,7 @@
 // Libraries
 import { Image } from 'astro:assets';
 import logoImg from "../assets/logo.png"
+
 // Data
 import navData from "../data/navData"
 
@@ -12,11 +13,11 @@ import Link from "../components/Link.astro"
   <nav>
     <div class ="navbar">
       <a href="/" class="'logo">
-        <Image src={logoImg} width='100' height='100' alt="Logo">
+        <Image src={logoImg} width='100' height='100' alt="Logo" loading={'eager'}>
       </a>
       <ul class="nav-links">
         {
-          navData.map((item) => (<a href={item.path}>{item.name}</a>))
+          navData.map((item) => (<Link href={item.path}>{item.name}</Link>))
         }
       </ul>
     </div>

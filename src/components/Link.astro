@@ -1,12 +1,12 @@
 ---
+// Variables
 const {href} = Astro.props;
----
-<a href={href} class="">
-  <slot />
-</a>
+var props = href 
 
-<style>
-  a {
-    color: grey
-  }
-</style>
+// Logs
+// console.log("href props:", props)
+---
+
+<a href={href} class="hover:underline">
+  <slot/>
+</a>
